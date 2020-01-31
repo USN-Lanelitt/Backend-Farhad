@@ -55,7 +55,7 @@ class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(name"birthday", type="DateTime", nullable=true)
      */
     private $birthday;
 
@@ -178,12 +178,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getBirthday(): ?string
+    public function getBirthday(): ?\DateTime
     {
         return $this->birthday;
     }
 
-    public function setBirthday(?string $birthday): self
+    public function setBirthday(?DateTime $birthday): self
     {
         $this->birthday = $birthday;
 
