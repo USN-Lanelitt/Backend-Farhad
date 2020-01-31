@@ -2,8 +2,13 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\DateType;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
+use PhpParser\Node\Scalar\String_;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -37,7 +42,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180)
      */
-    private $confirmPassword;
+    //private $confirmPassword;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -120,8 +125,6 @@ class User implements UserInterface
         return $this;
     }
 
-
-
     /**
      * @see UserInterface
      */
@@ -139,7 +142,7 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getConfirmPassword(): ?string
+    /*public function getConfirmPassword(): ?string
     {
         return $this->confirmPassword;
     }
@@ -149,7 +152,7 @@ class User implements UserInterface
         $this->confirmPassword = $confirmPassword;
 
         return $this;
-    }
+    }*/
 
     public function getFirstname(): ?string
     {
@@ -175,12 +178,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getBirthday(): ?Date
+    public function getBirthday(): ?string
     {
         return $this->birthday;
     }
 
-    public function setBirthday(?Date $birthday): self
+    public function setBirthday(?string $birthday): self
     {
         $this->birthday = $birthday;
 
